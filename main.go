@@ -1,11 +1,16 @@
 package context
 
-import "context"
+import (
+	"context"
+
+	"github.com/google/uuid"
+)
 
 // for future probably idk
 
 type Context context.Context
 
 func Background() Context {
-	return context.Background()
+	ctx := context.WithValue(context.Background(), "uuid", uuid.NewString())
+	return ctx
 }
